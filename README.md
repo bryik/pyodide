@@ -53,6 +53,21 @@ technical resources. These include:
     recommended for Windows and macOS users and for Linux users who prefer a
     Debian-based Docker image with the dependencies already installed.
 
+### Build Pyodide from source (Gitpod)
+
+The following steps show how to [build from sources](https://pyodide.org/en/latest/development/building-from-sources.html) using Gitpod and how to open the built `console.html` demo for [manual interactive testing](https://pyodide.org/en/latest/development/testing.html#manual-interactive-testing).
+
+1. Fork https://github.com/pyodide/pyodide
+2. Open in GitPod.
+3. Run `./run_docker --root`. You should end up in a Docker container.
+4. Run `make`. This will take some time and the result will be available in `./dist`.
+5. Open a new terminal, outside of the Docker container.
+6. Run `cd ./dist`.
+7. Run `python -m http.server`
+8. Gitpod should show a popup about an available port. Alternatively, click the "Ports" button at the bottom right of the Gitpod UI. This should show a sidebar of available ports. Click the open port, then the globe icon. Gitpod should open a new tab showing the `/dist` directory. Click "console.html" and wait.
+
+Now you should be able to make changes to `/src` and re-run `make` in the docker container to update the built files in `/dist`.
+
 ## History
 
 Pyodide was created in 2018 by [Michael Droettboom](https://github.com/mdboom)
